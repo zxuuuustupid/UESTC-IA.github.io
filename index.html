@@ -23,6 +23,53 @@
         .carousel-slide.active {
             opacity: 1;
         }
+        /* 添加导航按钮样式 */
+        .carousel-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0f172a;
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 10;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .carousel-nav-btn:hover {
+            background: rgba(255, 255, 255, 0.95);
+            transform: translateY(-50%) scale(1.05);
+        }
+        .carousel-nav-btn:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+        .carousel-nav-btn.left {
+            left: 20px;
+        }
+        .carousel-nav-btn.right {
+            right: 20px;
+        }
+        @media (max-width: 768px) {
+            .carousel-nav-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            .carousel-nav-btn.left {
+                left: 10px;
+            }
+            .carousel-nav-btn.right {
+                right: 10px;
+            }
+        }
     </style>
 </head>
 <body class="pt-24">
@@ -38,7 +85,7 @@
             autoplayInterval: null,
             startAutoplay() {
               this.autoplayInterval = setInterval(() => {
-                this.activeSlide = this.activeSlide === this.totalSlides ? 1 : this.activeSlide + 1;
+                this.nextSlide();
               }, 5000);
             },
             stopAutoplay() {
@@ -46,6 +93,18 @@
                 clearInterval(this.autoplayInterval);
                 this.autoplayInterval = null;
               }
+            },
+            nextSlide() {
+              this.activeSlide = this.activeSlide === this.totalSlides ? 1 : this.activeSlide + 1;
+              this.resetAutoplay();
+            },
+            prevSlide() {
+              this.activeSlide = this.activeSlide === 1 ? this.totalSlides : this.activeSlide - 1;
+              this.resetAutoplay();
+            },
+            resetAutoplay() {
+              this.stopAutoplay();
+              this.startAutoplay();
             }
           }"
           x-init="startAutoplay()"
@@ -64,15 +123,33 @@
             style="background-image: url('assets/images/carousel/challenge.jpg');"
           ></div>
 
+          <!-- 左滑按钮 -->
+          <button 
+            @click="prevSlide()"
+            class="carousel-nav-btn left"
+            aria-label="上一张"
+          >
+            <i class="fas fa-chevron-left"></i>
+          </button>
+
+          <!-- 右滑按钮 -->
+          <button 
+            @click="nextSlide()"
+            class="carousel-nav-btn right"
+            aria-label="下一张"
+          >
+            <i class="fas fa-chevron-right"></i>
+          </button>
+
           <!-- 轮播指示器 -->
           <div class="absolute bottom-6 left-0 right-0 flex justify-center space-x-3">
             <button 
-              @click="activeSlide = 1; stopAutoplay(); startAutoplay()" 
+              @click="activeSlide = 1; resetAutoplay()" 
               :class="activeSlide === 1 ? 'bg-cyan-600 w-8' : 'bg-slate-300 w-2'" 
               class="h-2 rounded-full transition-all"
             ></button>
             <button 
-              @click="activeSlide = 2; stopAutoplay(); startAutoplay()" 
+              @click="activeSlide = 2; resetAutoplay()" 
               :class="activeSlide === 2 ? 'bg-cyan-600 w-8' : 'bg-slate-300 w-2'" 
               class="h-2 rounded-full transition-all"
             ></button>
@@ -90,7 +167,7 @@
                         <div class="text-xs text-slate-500">Research Tracks</div>
                     </div>
                     <div>
-                        <div class="text-4xl font-bold text-slate-800 mb-1">10+</div>
+                        <div class="text-4xl font-bold text-slate-800 mb-1">5</div>
                         <div class="text-xs text-slate-500">Professors</div>
                     </div>
                     <div>

@@ -66,16 +66,16 @@
                         <h2 class="text-2xl font-bold text-slate-800">AI Methods | 技术底座</h2>
                     </div>
                     <p class="text-slate-600 leading-relaxed mb-8 text-lg">
-                        作为整个社团的“发动机”，AI Methods 方向聚焦人工智能驱动的创新实践，为其他各方向提供核心技术支持和方法论。我们不仅研究算法，更注重算法在真实场景中的泛化能力。
+                        作为整个社团的技术核心，AI Methods 部负责组织人工智能核心技术的培训与工作坊。该部门致力于为其他各方向的活动与项目提供关键的方法论和技术支持，是推动AI创新实践的基石。
                     </p>
                     
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div class="p-6 bg-slate-50 rounded-xl border border-slate-100">
-                            <h3 class="font-bold text-slate-800 mb-3 flex items-center"><i class="fas fa-bullseye text-cyan-600 mr-2"></i> 核心课题</h3>
+                            <h3 class="font-bold text-slate-800 mb-3 flex items-center"><i class="fas fa-bullseye text-cyan-600 mr-2"></i> 核心职能</h3>
                             <ul class="space-y-2 text-sm text-slate-600">
-                                <li>• 深度学习模型优化与压缩</li>
-                                <li>• 多模态数据融合 (Text-Image-Audio)</li>
-                                <li>• 可解释性 AI (XAI) 研究</li>
+                                <li>• 提供人工智能核心技术培训与工作坊</li>
+                                <li>• 为各跨学科项目提供方法论与技术支持</li>
+                                <li>• 推动AI驱动的创新实践落地</li>
                             </ul>
                         </div>
                         <div class="p-6 bg-slate-50 rounded-xl border border-slate-100">
@@ -84,24 +84,136 @@
                                 <span class="px-2 py-1 bg-white border border-slate-200 rounded text-xs text-slate-500">PyTorch</span>
                                 <span class="px-2 py-1 bg-white border border-slate-200 rounded text-xs text-slate-500">LLM Fine-tuning</span>
                                 <span class="px-2 py-1 bg-white border border-slate-200 rounded text-xs text-slate-500">CUDA</span>
+                                <span class="px-2 py-1 bg-white border border-slate-200 rounded text-xs text-slate-500">XAI</span>
+                                <span class="px-2 py-1 bg-white border border-slate-200 rounded text-xs text-slate-500">Multi-modal AI</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Tab 2: Science (示例) -->
+                <!-- Tab 2: Science -->
                 <div x-show="activeTab === 'science'" style="display:none" x-transition.opacity.duration.300ms>
                     <div class="flex items-center gap-3 mb-6 pb-6 border-b border-slate-100">
                         <span class="bg-cyan-100 text-cyan-700 px-3 py-1 rounded text-xs font-bold uppercase">Application</span>
-                        <h2 class="text-2xl font-bold text-slate-800">Science | 计算科学</h2>
+                        <h2 class="text-2xl font-bold text-slate-800">Science | 计算科学与基础研究</h2>
                     </div>
-                    <p class="text-slate-600 leading-relaxed mb-6">
-                        探索 AI for Science 的无限可能，利用深度学习加速新材料发现、蛋白质结构预测以及复杂物理系统的模拟。
+                    <p class="text-slate-600 leading-relaxed mb-8 text-lg">
+                        Science 部聚焦于计算科学在基础研究领域的深层应用。部门通过策划专业的讲座、工作坊以及项目实践活动，组织成员探索科学前沿课题。
                     </p>
-                    <!-- 更多内容... -->
+                    
+                    <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 mb-8">
+                        <h3 class="font-bold text-slate-800 mb-3 flex items-center"><i class="fas fa-atom text-cyan-600 mr-2"></i> 核心课题</h3>
+                        <ul class="space-y-2 text-sm text-slate-600">
+                            <li>• 探索蛋白质结构预测</li>
+                            <li>• 开展新材料发现研究</li>
+                            <li>• 组织计算科学基础研究领域的学术活动与实践</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="p-5 bg-white border border-slate-200 rounded-lg">
+                            <h4 class="font-bold text-slate-800 mb-2 flex items-center"><i class="fas fa-book text-blue-500 mr-2"></i> 学术活动</h4>
+                            <p class="text-sm text-slate-600">定期举办计算科学前沿讲座，邀请校内外专家学者分享最新研究成果。</p>
+                        </div>
+                        <div class="p-5 bg-white border border-slate-200 rounded-lg">
+                            <h4 class="font-bold text-slate-800 mb-2 flex items-center"><i class="fas fa-project-diagram text-green-500 mr-2"></i> 实践项目</h4>
+                            <p class="text-sm text-slate-600">组织跨学科研究小组，参与国家重大科研项目，培养科研能力。</p>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- 其他 Tab 内容略，结构相同 -->
+                <!-- Tab 3: Health -->
+                <div x-show="activeTab === 'health'" style="display:none" x-transition.opacity.duration.300ms>
+                    <div class="flex items-center gap-3 mb-6 pb-6 border-b border-slate-100">
+                        <span class="bg-rose-100 text-rose-700 px-3 py-1 rounded text-xs font-bold uppercase">Healthcare</span>
+                        <h2 class="text-2xl font-bold text-slate-800">Health | 智慧医疗与生命健康</h2>
+                    </div>
+                    <p class="text-slate-600 leading-relaxed mb-8 text-lg">
+                        Health 部致力于推动智慧医疗创新，重点关注智能技术在医疗健康领域的应用。部门通过组织高水平的学术交流与实践项目，促进医学与AI的深度融合。
+                    </p>
+                    
+                    <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 mb-8">
+                        <h3 class="font-bold text-slate-800 mb-3 flex items-center"><i class="fas fa-heartbeat text-cyan-600 mr-2"></i> 核心方向</h3>
+                        <ul class="space-y-2 text-sm text-slate-600">
+                            <li>• 推动智慧医疗创新实践</li>
+                            <li>• 进行医学影像分析研究</li>
+                            <li>• 探索智能医疗与可穿戴设备应用</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="p-5 bg-white border border-slate-200 rounded-lg">
+                            <h4 class="font-bold text-slate-800 mb-2 flex items-center"><i class="fas fa-hospital text-rose-500 mr-2"></i> 医疗合作</h4>
+                            <p class="text-sm text-slate-600">与附属医院合作，开展真实医疗场景下的AI应用研究与验证。</p>
+                        </div>
+                        <div class="p-5 bg-white border border-slate-200 rounded-lg">
+                            <h4 class="font-bold text-slate-800 mb-2 flex items-center"><i class="fas fa-microscope text-purple-500 mr-2"></i> 技术研发</h4>
+                            <p class="text-sm text-slate-600">开发医学影像分析算法，提升疾病早期诊断的准确性和效率。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 4: Engineering -->
+                <div x-show="activeTab === 'engineering'" style="display:none" x-transition.opacity.duration.300ms>
+                    <div class="flex items-center gap-3 mb-6 pb-6 border-b border-slate-100">
+                        <span class="bg-amber-100 text-amber-700 px-3 py-1 rounded text-xs font-bold uppercase">Engineering</span>
+                        <h2 class="text-2xl font-bold text-slate-800">Engineering | 工程应用与硬科技</h2>
+                    </div>
+                    <p class="text-slate-600 leading-relaxed mb-8 text-lg">
+                        Engineering 部面向具体的工程应用领域，旨在联合校内优势力量解决实际工程难题。部门通过组织前沿分享会与科创项目，推动工程技术突破。
+                    </p>
+                    
+                    <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 mb-8">
+                        <h3 class="font-bold text-slate-800 mb-3 flex items-center"><i class="fas fa-cogs text-cyan-600 mr-2"></i> 核心领域</h3>
+                        <ul class="space-y-2 text-sm text-slate-600">
+                            <li>• 联合攻关解决工程难题</li>
+                            <li>• 探索具身智能前沿技术</li>
+                            <li>• 开展芯片设计与通信系统研究</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="p-5 bg-white border border-slate-200 rounded-lg">
+                            <h4 class="font-bold text-slate-800 mb-2 flex items-center"><i class="fas fa-robot text-cyan-500 mr-2"></i> 具身智能</h4>
+                            <p class="text-sm text-slate-600">研发智能机器人系统，实现环境感知、决策规划与精准执行的完整技术链。</p>
+                        </div>
+                        <div class="p-5 bg-white border border-slate-200 rounded-lg">
+                            <h4 class="font-bold text-slate-800 mb-2 flex items-center"><i class="fas fa-microchip text-indigo-500 mr-2"></i> 芯片技术</h4>
+                            <p class="text-sm text-slate-600">参与芯片设计项目，从架构设计到验证测试，培养全栈芯片研发能力。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 5: Finance -->
+                <div x-show="activeTab === 'finance'" style="display:none" x-transition.opacity.duration.300ms>
+                    <div class="flex items-center gap-3 mb-6 pb-6 border-b border-slate-100">
+                        <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded text-xs font-bold uppercase">Finance</span>
+                        <h2 class="text-2xl font-bold text-slate-800">Finance | 金融科技与计算金融</h2>
+                    </div>
+                    <p class="text-slate-600 leading-relaxed mb-8 text-lg">
+                        Finance 部专注于现代计算方法在金融管理中的应用。部门通过组织专业的讲座与深入的案例分析，致力于培养成员的金融科技素养。
+                    </p>
+                    
+                    <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 mb-8">
+                        <h3 class="font-bold text-slate-800 mb-3 flex items-center"><i class="fas fa-chart-line text-cyan-600 mr-2"></i> 核心职能</h3>
+                        <ul class="space-y-2 text-sm text-slate-600">
+                            <li>• 培养复合型金融科技素养</li>
+                            <li>• 研究现代计算方法在金融管理中的应用</li>
+                            <li>• 进行金融科技案例分析与研讨</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="p-5 bg-white border border-slate-200 rounded-lg">
+                            <h4 class="font-bold text-slate-800 mb-2 flex items-center"><i class="fas fa-calculator text-emerald-500 mr-2"></i> 量化分析</h4>
+                            <p class="text-sm text-slate-600">运用机器学习算法进行金融市场预测、风险评估和投资组合优化。</p>
+                        </div>
+                        <div class="p-5 bg-white border border-slate-200 rounded-lg">
+                            <h4 class="font-bold text-slate-800 mb-2 flex items-center"><i class="fas fa-shield-alt text-yellow-500 mr-2"></i> 风险管理</h4>
+                            <p class="text-sm text-slate-600">开发智能风控系统，实时监测金融风险，提升金融机构的风险管理能力。</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
