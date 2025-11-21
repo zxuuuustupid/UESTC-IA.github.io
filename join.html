@@ -46,60 +46,81 @@
             </div>
         </div>
 
-        <!-- 2. How to Join (CTA Section) -->
-        <div class="bg-slate-800 rounded-2xl p-8 md:p-12 text-white shadow-2xl relative overflow-hidden">
+        <!-- 2. How to Join (CTA Section) - 重构二维码设计 -->
+        <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-6 md:p-8 shadow-2xl relative overflow-hidden">
             <!-- 装饰背景 -->
-            <div class="absolute -top-24 -right-24 w-64 h-64 bg-cyan-600 rounded-full blur-[80px] opacity-30"></div>
+            <div class="absolute -top-20 -right-20 w-64 h-64 bg-cyan-600 rounded-full blur-[80px] opacity-30"></div>
+            <div class="absolute -bottom-20 -left-20 w-48 h-48 bg-blue-500 rounded-full blur-[60px] opacity-20"></div>
 
-            <div class="relative z-10 flex flex-col md:flex-row gap-12 items-center">
+            <div class="relative z-10">
+                <h2 class="text-2xl font-bold text-white mb-8 text-center md:text-left">入会流程</h2>
                 
-                <!-- Left: Steps -->
-                <div class="flex-1 space-y-8">
-                    <h2 class="text-2xl font-bold mb-6">入会流程</h2>
-                    <div class="flex items-start gap-4">
-                        <div class="flex-shrink-0 w-8 h-8 rounded-full bg-cyan-600 flex items-center justify-center font-bold text-sm">1</div>
-                        <div>
-                            <h4 class="font-bold text-lg">加入咨询群 / 关注频道</h4>
-                            <p class="text-slate-400 text-sm mt-1">扫描右侧二维码，获取最新招募简章。</p>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Left: Steps -->
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="mt-1 flex-shrink-0 w-8 h-8 rounded-full bg-cyan-600 flex items-center justify-center font-bold text-sm text-white">1</div>
+                            <div class="flex-1">
+                                <h4 class="font-bold text-lg text-white">加入咨询群 / 关注频道</h4>
+                                <p class="text-slate-300 text-sm mt-1">扫描右侧二维码，获取最新招募简章和活动通知。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="mt-1 flex-shrink-0 w-8 h-8 rounded-full bg-slate-600 flex items-center justify-center font-bold text-sm text-white">2</div>
+                            <div class="flex-1">
+                                <h4 class="font-bold text-lg text-white">提交申请表</h4>
+                                <p class="text-slate-300 text-sm mt-1">每年 3月 / 9月 开启纳新。填写并提交个人简历与意向方向。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="mt-1 flex-shrink-0 w-8 h-8 rounded-full bg-slate-600 flex items-center justify-center font-bold text-sm text-white">3</div>
+                            <div class="flex-1">
+                                <h4 class="font-bold text-lg text-white">面试与定组</h4>
+                                <p class="text-slate-300 text-sm mt-1">通过核心骨干/导师面试，确定加入的项目组。</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="flex items-start gap-4">
-                        <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-600 flex items-center justify-center font-bold text-sm">2</div>
-                        <div>
-                            <h4 class="font-bold text-lg">提交申请表</h4>
-                            <p class="text-slate-400 text-sm mt-1">每年 3月 / 9月 开启纳新。填写并提交个人简历与意向方向。</p>
+
+                    <!-- Right: QR Codes - 重构设计 -->
+                    <div class="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10">
+                        <div class="text-center mb-6">
+                            <h3 class="text-white font-bold text-lg mb-1">扫码加入我们</h3>
+                            <p class="text-slate-400 text-xs">选择适合你的加入方式</p>
                         </div>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-600 flex items-center justify-center font-bold text-sm">3</div>
-                        <div>
-                            <h4 class="font-bold text-lg">面试与定组</h4>
-                            <p class="text-slate-400 text-sm mt-1">通过核心骨干/导师面试，确定加入的项目组。</p>
+                        
+                        <div class="grid grid-cols-1 gap-6">
+                            <!-- TechPulse Channel QR Code -->
+                            <div class="bg-slate-900 rounded-xl p-4 border border-cyan-900/50 hover:border-cyan-500 transition-all duration-300">
+                                <div class="flex flex-col items-center">
+                                    <div class="w-full max-w-[200px] h-48 bg-black/30 rounded-lg flex items-center justify-center overflow-hidden mx-auto mb-3">
+                                        <img src="assets/images/join/TechPulse.png" alt="TechPulse 官方频道" class="max-w-full max-h-full object-contain p-2">
+                                    </div>
+                                    <div class="text-center">
+                                        <span class="block text-cyan-400 font-bold text-sm mb-0.5">TechPulse 频道</span>
+                                        <span class="text-slate-400 text-xs">获取最新技术动态</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- QQ Group QR Code -->
+                            <div class="bg-slate-900 rounded-xl p-4 border border-blue-900/50 hover:border-blue-400 transition-all duration-300">
+                                <div class="flex flex-col items-center">
+                                    <div class="w-full max-w-[200px] h-48 bg-black/30 rounded-lg flex items-center justify-center overflow-hidden mx-auto mb-3">
+                                        <img src="assets/images/join/QQgroup.jpg" alt="QQ 招募咨询群" class="max-w-full max-h-full object-contain p-2">
+                                    </div>
+                                    <div class="text-center">
+                                        <span class="block text-blue-300 font-bold text-sm mb-0.5">招募咨询群</span>
+                                        <span class="text-slate-400 text-xs">直接咨询招新事宜</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4 text-center">
+                            <p class="text-[10px] text-slate-500">* 请认准官方账号，谨防假冒</p>
                         </div>
                     </div>
                 </div>
-
-                <!-- Right: QR Codes -->
-                <div class="flex-shrink-0 bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/10 text-center">
-                    <div class="flex gap-6 mb-4">
-                        <div class="flex flex-col items-center">
-                            <div class="w-28 h-28 bg-white rounded-lg flex items-center justify-center mb-2 overflow-hidden">
-                                <!-- QR Code Placeholder -->
-                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://example.com/channel" alt="QQ Channel" class="w-24 h-24">
-                            </div>
-                            <span class="text-xs font-bold text-cyan-400">TechPulse 官方频道</span>
-                        </div>
-                        <div class="flex flex-col items-center">
-                            <div class="w-28 h-28 bg-white rounded-lg flex items-center justify-center mb-2 overflow-hidden">
-                                <!-- QR Code Placeholder -->
-                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://example.com/group" alt="QQ Group" class="w-24 h-24">
-                            </div>
-                            <span class="text-xs font-bold text-slate-300">招募咨询群</span>
-                        </div>
-                    </div>
-                    <p class="text-[10px] text-slate-400">Please verify the official account.</p>
-                </div>
-
             </div>
         </div>
 
