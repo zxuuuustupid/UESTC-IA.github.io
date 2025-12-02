@@ -8,32 +8,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
       :root {
-        /* 核心配色：Slate (青灰) + Cyan (青/蓝绿) */
-        --color-cyan-600: #0891b2;
-        --color-cyan-500: #06b6d4;
-        --color-cyan-50:  #ecfeff;
+        /* --- 黑白简约配色体系 --- */
+        --color-bg: #f5f5f7;        /* 页面背景：高级灰 */
+        --color-card: #ffffff;      /* 卡片背景：纯白 */
         
-        --color-slate-900: #0f172a;
-        --color-slate-800: #1e293b;
-        --color-slate-600: #475569;
-        --color-slate-500: #64748b;
-        --color-slate-200: #e2e8f0;
-        --color-slate-50:  #f8fafc;
+        --color-text-main: #1d1d1f; /* 主要文字：接近黑 */
+        --color-text-sub: #86868b;  /* 次要文字：中灰 */
+        --color-black: #000000;     /* 纯黑强调色 */
         
-        --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-        --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-        --shadow-cyan: 0 4px 14px 0 rgba(8, 145, 178, 0.3);
+        --border-light: #e5e5e5;    /* 极细边框 */
+        
+        /* 极其柔和的阴影，几乎看不见，增加层次感 */
+        --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.04);
+        --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.08);
       }
 
       * { margin: 0; padding: 0; box-sizing: border-box; }
       
       body {
-        font-family: 'Inter', system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
-        line-height: 1.8; /* 稍微增加行高提升阅读舒适度 */
-        color: var(--color-slate-600);
-        background-color: var(--color-slate-50);
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+        line-height: 1.8;
+        color: var(--color-text-main);
+        background-color: var(--color-bg);
         padding: 40px 20px;
         min-height: 100vh;
+        -webkit-font-smoothing: antialiased; /* 让字体在Mac上更细致 */
       }
       
       .container {
@@ -43,72 +42,41 @@
       
       /* --- 顶部导航 --- */
       .header-actions { margin-bottom: 2rem; }
+      
       .back-button {
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        color: var(--color-slate-500);
+        color: var(--color-text-sub);
         text-decoration: none;
         font-weight: 500;
-        font-size: 0.95rem;
-        transition: all 0.2s;
-        padding: 8px 12px;
-        border-radius: 8px;
+        font-size: 0.9rem;
+        transition: all 0.3s;
+        padding: 8px 0; /* 极简风去掉背景，只留文字 */
       }
+      
       .back-button:hover {
-        color: var(--color-cyan-600);
-        background: white;
-        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        color: var(--color-black);
+        transform: translateX(-4px); /* 仅做位移交互 */
       }
       
       /* --- 主卡片容器 --- */
       .partner-card {
-        background: white;
-        border-radius: 24px;
+        background: var(--color-card);
+        border-radius: 20px; /* 稍微减小圆角，更干练 */
         overflow: hidden;
-        box-shadow: var(--shadow-lg);
-        border: 1px solid rgba(255,255,255,0.8);
+        box-shadow: var(--shadow-soft);
       }
       
       /* --- Hero / Logo 区域 --- */
       .hero-section {
-        position: relative;
-        padding: 60px 40px;
+        padding: 80px 40px 60px; /* 增加留白 */
         text-align: center;
-        background: white;
-        overflow: hidden;
-        border-bottom: 1px solid var(--color-slate-200);
-      }
-      
-      /* 背景装饰光斑 */
-      .blur-decoration {
-        position: absolute;
-        top: -80px;
-        right: -80px;
-        width: 350px;
-        height: 350px;
-        background: var(--color-cyan-600);
-        opacity: 0.12;
-        border-radius: 50%;
-        filter: blur(90px);
-        pointer-events: none;
-      }
-      .blur-decoration-2 {
-        position: absolute;
-        bottom: -40px;
-        left: -40px;
-        width: 250px;
-        height: 250px;
-        background: #3b82f6;
-        opacity: 0.08;
-        border-radius: 50%;
-        filter: blur(70px);
-        pointer-events: none;
+        background: var(--color-card);
+        border-bottom: 1px solid var(--border-light);
       }
       
       .hero-content {
-        position: relative;
-        z-index: 1;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -116,142 +84,157 @@
 
       /* Logo 容器 */
       .logo-wrapper {
-        width: 140px;
-        height: 140px;
+        width: 120px;
+        height: 120px;
         margin-bottom: 24px;
         display: flex;
         align-items: center;
         justify-content: center;
-        filter: drop-shadow(0 10px 15px rgba(8, 145, 178, 0.15)); /* 给PNG Logo增加质感 */
-        transition: transform 0.3s ease;
+        /* 去掉投影，保持平面感，或者加一点点 */
+        transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
       }
       
       .logo-wrapper:hover {
-        transform: scale(1.05);
+        transform: scale(1.03);
       }
 
       .logo-img {
         width: 100%;
         height: 100%;
         object-fit: contain;
+        /* 可选：如果希望Logo也变黑白，可以取消下面这行的注释 */
+        /* filter: grayscale(100%); */
       }
       
       .partner-name {
-        font-size: 32px;
-        font-weight: 800;
+        font-size: 36px;
+        font-weight: 700;
         margin-bottom: 8px;
-        color: var(--color-slate-900);
-        letter-spacing: -0.02em;
+        color: var(--color-black);
+        letter-spacing: -0.03em; /* 紧凑字间距，更现代 */
       }
       
       .partner-tagline {
         font-size: 16px;
-        color: var(--color-slate-500);
-        margin-bottom: 16px;
+        color: var(--color-text-sub);
+        font-weight: 400;
+        margin-bottom: 24px;
       }
 
-      /* 标签胶囊 */
+      /* 标签胶囊 - 线框风格 */
       .tags-container {
         display: flex; 
-        gap: 8px; 
+        gap: 10px; 
         flex-wrap: wrap; 
         justify-content: center;
       }
       
       .tag-pill {
-        background: var(--color-cyan-50); 
-        color: var(--color-cyan-600); 
-        padding: 4px 12px; 
-        border-radius: 20px; 
-        font-size: 13px; 
-        font-weight: 600; 
-        border: 1px solid #cffafe;
+        background: transparent;
+        color: var(--color-text-main); 
+        padding: 6px 16px; 
+        border-radius: 100px; 
+        font-size: 12px; 
+        font-weight: 500; 
+        border: 1px solid var(--border-light);
+        transition: all 0.3s;
+      }
+      
+      .tag-pill:hover {
+        border-color: var(--color-black);
+        background: var(--color-black);
+        color: white;
       }
 
       /* --- 内容区域布局 --- */
-      .content-body { padding: 50px; }
-      @media (max-width: 768px) { .content-body { padding: 30px 20px; } }
+      .content-body { padding: 60px; }
+      @media (max-width: 768px) { .content-body { padding: 40px 20px; } }
       
-      .section { margin-bottom: 48px; }
+      .section { margin-bottom: 60px; }
       .section:last-child { margin-bottom: 0; }
       
       h2 {
-        font-size: 20px;
-        font-weight: 700;
-        color: var(--color-slate-800);
-        margin-bottom: 20px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-      /* 标题左侧装饰条 */
-      h2::before {
-        content: '';
-        display: block;
-        width: 4px;
-        height: 24px;
-        background: var(--color-cyan-600);
-        border-radius: 2px;
+        font-size: 22px;
+        font-weight: 600;
+        color: var(--color-black);
+        margin-bottom: 24px;
+        /* 极简风：去掉图标，仅用纯文字 */
+        letter-spacing: -0.01em;
       }
       
-      p { margin-bottom: 16px; font-size: 16px; color: var(--color-slate-600); text-align: justify; }
-      .highlight { color: var(--color-cyan-600); font-weight: 600; }
+      p { 
+        margin-bottom: 16px; 
+        font-size: 16px; 
+        color: #424245; /* 经典的阅读灰 */
+        text-align: justify; 
+      }
+      
+      /* 高亮改为加粗黑色 */
+      .highlight { 
+        color: var(--color-black); 
+        font-weight: 600; 
+        text-decoration: underline; /* 增加下划线强调 */
+        text-decoration-color: rgba(0,0,0,0.2);
+        text-underline-offset: 4px;
+      }
 
-      /* --- 特性列表 Grid (用于企业介绍) --- */
+      /* --- 特性列表 (企业介绍) --- */
       .feature-list {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 16px;
+        gap: 20px;
       }
       .feature-item {
-        background: var(--color-slate-50);
-        padding: 20px;
+        background: #fafafa; /* 极浅的灰底 */
+        padding: 24px;
         border-radius: 12px;
-        border: 1px solid var(--color-slate-200);
+        border: 1px solid transparent;
         transition: all 0.3s ease;
       }
       .feature-item:hover {
         background: white;
-        box-shadow: var(--shadow-md);
-        transform: translateY(-2px);
+        border-color: var(--border-light);
+        box-shadow: var(--shadow-hover);
       }
       .feature-title {
-        color: var(--color-slate-900);
-        font-weight: 700;
+        color: var(--color-black);
+        font-weight: 600;
         display: flex;
         align-items: center;
-        gap: 8px;
-        margin-bottom: 8px;
+        gap: 10px;
+        margin-bottom: 10px;
         font-size: 1.05rem;
+      }
+      .feature-title i {
+        font-size: 14px; /* 小巧精致的图标 */
       }
       .feature-desc {
         font-size: 14px;
-        color: var(--color-slate-600);
+        color: var(--color-text-sub);
         line-height: 1.6;
       }
 
-      /* --- 作品展示卡片 (左右结构) --- */
+      /* --- 作品展示卡片 (黑白风) --- */
       .work-card {
         background: white;
         border-radius: 16px;
-        border: 1px solid var(--color-slate-200);
+        border: 1px solid var(--border-light);
         overflow: hidden;
-        display: flex; /* 开启Flex左右布局 */
+        display: flex;
         flex-direction: row;
         transition: all 0.3s ease;
       }
       
       .work-card:hover {
-        box-shadow: var(--shadow-lg);
-        border-color: #a5f3fc;
+        box-shadow: var(--shadow-hover);
+        border-color: #d1d1d1;
         transform: translateY(-2px);
       }
       
-      /* 左侧海报容器 */
       .work-poster-container {
         flex-shrink: 0;
-        width: 220px; /* 根据海报比例适当调整宽度 */
-        background: #e2e8f0;
+        width: 220px;
+        background: #f0f0f0;
         position: relative;
         overflow: hidden;
       }
@@ -259,76 +242,91 @@
       .work-poster-img {
         width: 100%;
         height: 100%;
-        object-fit: cover; /* 保证填满容器 */
+        object-fit: cover;
         display: block;
-        transition: transform 0.5s ease;
+        transition: transform 0.6s ease;
+        /* 也可以加上 grayscale 让海报也变黑白，鼠标放上去变彩色，如下： */
+        /* filter: grayscale(100%); */
       }
       
-      /* 鼠标悬停海报微放大 */
+      /* .work-card:hover .work-poster-img {
+        filter: grayscale(0%);
+        transform: scale(1.03);
+      } */
+      
       .work-card:hover .work-poster-img {
         transform: scale(1.03);
       }
       
-      /* 右侧信息区域 */
       .work-info {
         flex: 1;
-        padding: 32px;
+        padding: 40px;
         display: flex;
         flex-direction: column;
         justify-content: center;
       }
       
       .work-title {
-        font-size: 20px;
+        font-size: 22px;
         font-weight: 700;
-        color: var(--color-slate-900);
-        margin-bottom: 16px;
-        line-height: 1.4;
+        color: var(--color-black);
+        margin-bottom: 20px;
+        line-height: 1.3;
       }
       
       .work-meta-list {
-        margin-bottom: 24px;
+        margin-bottom: 30px;
       }
       
       .work-meta {
-        font-size: 15px;
-        color: var(--color-slate-600);
-        margin-bottom: 8px;
+        font-size: 14px;
+        color: var(--color-text-sub);
+        margin-bottom: 10px;
         display: flex;
         align-items: flex-start;
-        gap: 10px;
+        gap: 12px;
+        padding-left: 4px;
+        border-left: 2px solid transparent; /* 预留对齐 */
       }
       .work-meta strong {
-        color: var(--color-slate-800);
+        color: var(--color-text-main);
         font-weight: 600;
-        flex-shrink: 0;
       }
+      /* 隐藏原有图标，改用更极简的排版 */
       .work-meta i {
-        color: var(--color-cyan-600);
-        margin-top: 5px; /* 图标对齐文本第一行 */
-        width: 16px;
-        text-align: center;
+        display: none; 
+      }
+      /* 使用点作为分隔符 */
+      .work-meta::before {
+        content: '';
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        background: #d1d1d6;
+        border-radius: 50%;
+        margin-top: 9px;
       }
 
-      /* 按钮样式 */
+      /* 黑色实心按钮 */
       .btn-primary {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        background: var(--color-cyan-600);
+        background: var(--color-black);
         color: white;
-        font-weight: 600;
-        padding: 10px 24px;
-        border-radius: 8px;
+        font-weight: 500;
+        padding: 12px 30px;
+        border-radius: 100px; /* 全圆角按钮 */
         text-decoration: none;
         transition: all 0.3s ease;
         align-self: flex-start;
-        box-shadow: var(--shadow-cyan);
+        font-size: 14px;
+        letter-spacing: 0.5px;
       }
       .btn-primary:hover {
-        background: var(--color-cyan-500);
+        background: #333333;
         transform: translateY(-1px);
-        box-shadow: 0 6px 20px rgba(6, 182, 212, 0.4);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
       }
 
       /* --- 联系方式 --- */
@@ -340,66 +338,66 @@
       .contact-box {
         display: flex;
         align-items: center;
-        gap: 16px;
-        padding: 20px;
-        background: var(--color-slate-50);
+        gap: 20px;
+        padding: 24px;
+        background: white;
         border-radius: 12px;
-        border: 1px solid var(--color-slate-200);
+        border: 1px solid var(--border-light);
         transition: all 0.2s;
       }
       .contact-box:hover {
-        background: #ecfeff;
-        border-color: #a5f3fc;
+        border-color: var(--color-black);
       }
       .contact-icon {
-        width: 48px;
-        height: 48px;
-        border-radius: 10px;
-        background: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        background: #f5f5f7;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: var(--color-cyan-600);
-        font-size: 20px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        color: var(--color-black);
+        font-size: 18px;
         flex-shrink: 0;
       }
       .contact-detail h4 {
-        font-size: 12px;
-        color: var(--color-slate-500);
-        margin-bottom: 2px;
+        font-size: 11px;
+        color: var(--color-text-sub);
+        margin-bottom: 4px;
         text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
       }
       .contact-detail div {
         font-weight: 600;
-        color: var(--color-slate-800);
+        color: var(--color-black);
         font-size: 15px;
       }
 
       /* --- 响应式适配 --- */
       @media (max-width: 768px) {
-        /* 作品卡片在手机端变为上下结构 */
         .work-card {
           flex-direction: column;
         }
         .work-poster-container {
           width: 100%;
           height: auto; 
-          max-height: 400px; /* 限制手机上海报高度 */
-          background: #f8fafc;
+          max-height: 450px; 
+          border-bottom: 1px solid var(--border-light);
         }
         .work-poster-img {
-            object-fit: contain; /* 手机上完整显示图片，不裁切 */
-            padding: 10px;
+            object-fit: contain; 
+            padding: 20px;
+            background: #fafafa;
         }
         .work-info {
-          padding: 24px;
+          padding: 30px 24px;
         }
         .btn-primary {
-            width: 100%; /* 按钮全宽 */
+            width: 100%; 
         }
         .feature-list {
-            grid-template-columns: 1fr; /* 手机上一行一个特性 */
+            grid-template-columns: 1fr; 
         }
       }
     </style>
@@ -409,9 +407,8 @@
       
       <!-- 顶部导航 -->
       <div class="header-actions">
-        <!-- 假设列表页是同级目录下的 partners.html 或者上一级目录，根据实际情况调整 -->
         <a href="../partners.html" class="back-button">
-          <i class="fas fa-arrow-left"></i> 返回合作伙伴列表
+          <i class="fas fa-arrow-left" style="font-size: 12px;"></i> 返回合作伙伴列表
         </a>
       </div>
       
@@ -420,14 +417,11 @@
         
         <!-- Hero 区域 -->
         <div class="hero-section">
-          <!-- 装饰光效 -->
-          <div class="blur-decoration"></div>
-          <div class="blur-decoration-2"></div>
           
           <div class="hero-content">
             <!-- Logo -->
             <div class="logo-wrapper">
-              <img src="../assets/images/partners/changing-view/logo.png" alt="辰境绘卷 Logo" class="logo-img" onerror="this.style.display='none'; this.parentNode.innerHTML='<div style=\'font-size:30px; color:#0891b2\'>辰境绘卷</div>'">
+              <img src="../assets/images/partners/changing-view/logo.png" alt="辰境绘卷 Logo" class="logo-img" onerror="this.style.display='none'; this.parentNode.innerHTML='<div style=\'font-size:30px; color:#000; font-weight:bold\'>辰境绘卷</div>'">
             </div>
             
             <h1 class="partner-name">辰境绘卷</h1>
@@ -460,7 +454,7 @@
               <!-- 特性 1 -->
               <div class="feature-item">
                 <div class="feature-title">
-                    <i class="fas fa-pen-nib" style="color:var(--color-cyan-600);"></i> 独特叙事
+                    <i class="fas fa-pen-nib"></i> 独特叙事
                 </div>
                 <div class="feature-desc">打破沟通障碍，深度融合商业需求与艺术表达。</div>
               </div>
@@ -468,7 +462,7 @@
               <!-- 特性 2 -->
               <div class="feature-item">
                 <div class="feature-title">
-                    <i class="fas fa-layer-group" style="color:var(--color-cyan-600);"></i> 全域覆盖
+                    <i class="fas fa-layer-group"></i> 全域覆盖
                 </div>
                 <div class="feature-desc">从商业广告、纪录片、微电影到短视频与运动直播，提供全方位的视觉解决方案。</div>
               </div>
@@ -476,7 +470,7 @@
               <!-- 特性 3 -->
               <div class="feature-item">
                 <div class="feature-title">
-                    <i class="fas fa-users" style="color:var(--color-cyan-600);"></i> 精英团队
+                    <i class="fas fa-users"></i> 精英团队
                 </div>
                 <div class="feature-desc">由资深导演、编剧、创意策划师及一流的技术团队（摄影、特效、调色）组成，确保每一帧画面都充满故事感。</div>
               </div>
@@ -494,8 +488,8 @@
                 <img src="../assets/images/partners/changing-view/witness-of-time.png" alt="山河千古在海报" class="work-poster-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                 
                 <!-- 容错占位 -->
-                <div style="display:none; width:100%; height:100%; align-items:center; justify-content:center; background:#cbd5e1; color:white; flex-direction:column; padding:20px; text-align:center;">
-                   <i class="fas fa-image fa-3x" style="opacity:0.6; margin-bottom:10px"></i>
+                <div style="display:none; width:100%; height:100%; align-items:center; justify-content:center; background:#f5f5f7; color:#999; flex-direction:column; padding:20px; text-align:center;">
+                   <i class="fas fa-image fa-3x" style="opacity:0.3; margin-bottom:10px"></i>
                    <div style="font-size:12px;">海报加载失败</div>
                 </div>
               </div>
@@ -506,21 +500,18 @@
                 
                 <div class="work-meta-list">
                   <div class="work-meta">
-                    <i class="fas fa-building"></i>
                     <span><strong>出品方：</strong> 新华社</span>
                   </div>
                   <div class="work-meta">
-                    <i class="fas fa-history"></i>
                     <span><strong>背景：</strong> 中国人民抗日战争暨世界反法西斯战争胜利 80 周年纪念活动</span>
                   </div>
                   <div class="work-meta">
-                    <i class="fas fa-clapperboard"></i>
                     <span><strong>内容：</strong> 辰境绘卷团队深度参与摄制、后期、包装等工作。</span>
                   </div>
                 </div>
                 
                 <a href="https://www.kzjn80.cn/20250831/583f8b18ee2b4c94aa23e9d7e45cdce3/c.html" target="_blank" class="btn-primary">
-                  <i class="fas fa-play-circle" style="margin-right: 8px;"></i> 点击观看作品
+                  <i class="fas fa-play" style="margin-right: 8px; font-size: 10px;"></i> 点击观看作品
                 </a>
               </div>
             </div>
@@ -534,7 +525,7 @@
             <div class="contact-grid">
               <!-- 联系人 -->
               <div class="contact-box">
-                <div class="contact-icon"><i class="fas fa-user-tie"></i></div>
+                <div class="contact-icon"><i class="fas fa-user"></i></div>
                 <div class="contact-detail">
                   <h4>企业对接人</h4>
                   <div>张晰元</div>
